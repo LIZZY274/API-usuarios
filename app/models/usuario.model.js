@@ -9,14 +9,14 @@ const Usuario = function(usuario) {
 };
 
 Usuario.create = (newUsuario, result) => {
-  sql.query("INSERT INTO usuario SET ?", newUsuario, (err, res) => {
+  sql.query("INSERT INTO usuarios SET ?", newUsuario, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
       return;
     }
 
-    console.log("created usuario: ", { id: res.insertId, ...newUsuario });
+    console.log("created usuarios: ", { id: res.insertId, ...newUsuario });
     result(null, { id: res.insertId, ...newUsuario });
   });
 };
